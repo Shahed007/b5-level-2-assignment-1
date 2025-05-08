@@ -19,7 +19,6 @@ type C = { c: boolean };
 type D = C & { d: number };
 
 
-Shahed007
 write this readme file properly # Differences between interfaces and types in TypeScript
 
 We can use type and interfaces for decleare type but thay have deffrente use case type ca
