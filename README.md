@@ -2,47 +2,73 @@
 
 In TypeScript, both `type` and `interface` can be used to define types, but they have different use cases and capabilities.
 
-## 1. Extending Other Types
+Typescript was superscript of the javascript.
 
-Both `interface` and `type` can extend other interfaces or types. Here's an example:
+## 🔹 What Are They?
 
-```typescript
-interface A {
-  a: string;
+### **Interface**
+
+An Interface define a shpae of an object, primarily used for object type definitions and class contracts
+
+
+interface User {
+  name: string;
+  age: number;
 }
-interface B extends A {
-  b: number;
+
+## **Type 
+A type can represent of any kindy of type like: primitive, union, intersection, tuple, or even an object
+
+Interface face have auto marging capability
+
+like i declare same type of interface like
+
+interface User {
+ name: string
 }
 
-// Using type
-type C = { c: boolean };
-type D = C & { d: number };
+interface User {
+age: number;
+}
+
+const user: User = {name: "shahed", age: 23} // it was can working
+
+But type can't support like this thing but that also margeable
+
+type Person = {
+  name: string;
+};
+
+type FullPerson = Person & { age: number };
+
+interface and type boath are support margining
 
 
-write this readme file properly # Differences between interfaces and types in TypeScript
+## Class
 
-We can use type and interfaces for decleare type but thay have deffrente use case type ca
+Interface basiclay used to define the type class contract we can use also type but prefarable is intrface
 
-Extending Other Types
-Both interface and type can extend other interfaces or types:
+ ## 3. Capabilities
+type is more versatile. You can represent:
 
-interface A { a: string }
-interface B extends A { b: number }
+Unions: type Status = "success" | "error";
 
-type C = { c: boolean }
-type D = C & { d: number }
+Tuples: type Point = [number, number];
 
-greet();
+Functions: type Log = (msg: string) => void;
 
-Intreface can not support unions like primitives, and tuples.
-Example:
+interface only describes object shapes.
 
-type Status = "MD" | "Shahed";
+4. Computed Properties
+Only type aliases support mapped and conditional types.
 
 
-2. Interfaces Do Not Support Unions
-Unlike type, interface cannot represent unions, such as primitives or tuples. Here's an example:
+type Keys = 'a' | 'b';
+type Obj = {
+  [K in Keys]: number; // mapped type
+};
 
-type Status = "MD" | "Shahed";
 
-```
+
+
+
