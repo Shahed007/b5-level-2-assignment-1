@@ -1,74 +1,36 @@
-# Differences Between Interfaces and Types in TypeScript
+# How does TypeScript help in improving code quality and project maintainability?
 
-In TypeScript, both `type` and `interface` can be used to define types, but they have different use cases and capabilities.
+Before understanding typescript imporving code qulaity and maintainability we need know fisrt what is javascript 
 
-Typescript was superscript of the javascript.
+Simply put "TypeScript is supper set of the javascript"
 
-## 🔹 What Are They?
+Typescript ensures the type safety of code and enforces putting explicit types.
 
-### **Interface**
+It was show the error instanlty don't need wait for the compile the code.
 
-An Interface define a shpae of an object, primarily used for object type definitions and class contracts
+Typescript can show where is the error in the code properly
 
+Also, it's built-in intellisense will suggest code so that we can avoid errors.
 
-interface User {
-  name: string;
-  age: number;
+A bigger project typescript healp tor write clean code and predictable codes that behave always the same. This makes maintainability easier.
+
+# explain the difference between any, unknown, and never types in TypeScript.
+
+1. any Type : Any is a cheat code that allows us to bypass the type safety. It will allow to assign any type of value.
+
+```
+let x: any = 'Jhon';
+x = true;
+x = { name: 'Shahed' };
+```
+
+This will now trigger any red flag to TypeScript.
+
+2. unknown type: The unknown type is kind of like any, but a bit safer. You can use it when you're getting data from somewhere and you're not sure what type it is.
+3. never type: The TypeScript docs say it best: "never means a value that never happens." In simple terms, you use never when you're sure a function won't return anything—like when it always throws an error or crashes the program. Here's an example.
+
+```
+function printName(name: string): nvever {
+  console.log(`Your name is ${name}.`);
 }
-
-## **Type 
-A type can represent of any kindy of type like: primitive, union, intersection, tuple, or even an object
-
-Interface face have auto marging capability
-
-like i declare same type of interface like
-
-interface User {
- name: string
-}
-
-interface User {
-age: number;
-}
-
-const user: User = {name: "shahed", age: 23} // it was can working
-
-But type can't support like this thing but that also margeable
-
-type Person = {
-  name: string;
-};
-
-type FullPerson = Person & { age: number };
-
-interface and type boath are support margining
-
-
-## Class
-
-Interface basiclay used to define the type class contract we can use also type but prefarable is intrface
-
- ## 3. Capabilities
-type is more versatile. You can represent:
-
-Unions: type Status = "success" | "error";
-
-Tuples: type Point = [number, number];
-
-Functions: type Log = (msg: string) => void;
-
-interface only describes object shapes.
-
-4. Computed Properties
-Only type aliases support mapped and conditional types.
-
-
-type Keys = 'a' | 'b';
-type Obj = {
-  [K in Keys]: number; // mapped type
-};
-
-
-
-
-
+```
